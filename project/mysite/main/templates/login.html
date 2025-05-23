@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - MyWebsite</title>
+  <link rel="stylesheet" href="{% static 'login.css' %}" />
+
+</head>
+<body style="background-image:url({% static "back.jpg" %}); background-repeat: no-repeat; background-size: cover;  background-position: center;   height: 100vh;">
+  <nav class="navbar">
+    <div class="logo">⚡ElectricFix</div>
+    <div class="menu-icon" id="menu-icon">&#9776;</div>
+    
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/home/">Home</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/contact/">Contact</a></li>
+  <li><a href="/complain/">Complaint</a></li>
+  <li><a href="/mycomplain/">my_complain</a></li>
+
+
+
+
+  {% if user.is_authenticated %}
+    <!-- Logged-in user -->
+    <li><a href="/logout/" class="btn">Logout</a></li>
+  {% else %}
+    <!-- Guest (not logged in) -->
+    <li><a href="/" class="btn">Login</a></li>
+    <li><a href="/register/" class="btn">Register</a></li>
+  
+  {% endif %}
+
+    </ul>
+  </nav>
+
+  <section class="content">
+    <h1>Login</h1>
+      <form method="POST" action="{% url 'login' %}">
+      {% csrf_token %}
+
+      <div class="form-group">
+        <label for="username">Username or Email</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+
+      <button type="submit" class="btn">Login</button>
+       <p>Don't have an account? <a href="/register/">Register</a></p>
+       {% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li class="alert {{ message.tags }}">
+        {{ message }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+    </form>
+  </section>
+
+  <script>
+    const menuIcon = document.getElementById("menu-icon");
+    const navLinks = document.getElementById("nav-links");
+    menuIcon.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+  </script>
+</body>
+</html>

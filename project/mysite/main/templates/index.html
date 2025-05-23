@@ -1,0 +1,98 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home - MyWebsite</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}" />
+
+</head>
+<body style="background-image:url({% static "back.jpg" %}); background-repeat: no-repeat; background-size: cover;  background-position: center;   height: 100vh;">
+
+  <nav class="navbar">
+    <div class="logo">⚡ElectricFix</div>
+    <div class="menu-icon" id="menu-icon">&#9776;</div>
+    
+    <ul class="nav-links" id="nav-links">
+       <li><a href="/home/">Home</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/contact/">Contact</a></li> 
+  <li><a href="/complain/">Complaint</a></li>
+  <li><a href="/mycomplain/">my_complain</a></li>
+
+
+
+
+  {% if user.is_authenticated %}
+    <!-- Logged-in user -->
+    <li><a href="/logout/" class="btn">Logout</a></li>
+  {% else %}
+    <!-- Guest (not logged in) -->
+    <li><a href="/" class="btn">Login</a></li>
+    <li><a href="/register/" class="btn">Register</a></li>
+  {% endif %}
+    </ul>
+  </nav>
+
+  <section class="content" style="color: white;">
+    <h1>welcome to ⚡ElectricFix  {{ user.username }}!</h1>
+    </br>
+    <p>⚡ Empowering Your Complaints with Instant Electric Fixes!.</p>
+    <br>
+    <p>ElectricFix is your go-to platform for quick and efficient resolution of electrical issues. Whether it's a faulty switch, broken wiring, or power outage complaints, we aim to streamline the process of registering, tracking, and resolving electrical problems with ease.
+      </p>
+      <br>
+      <br>
+       <p>
+        Our mission is to provide a user-friendly complaint system that connects residents with responsible authorities to ensure quick action. We value transparency, accountability, and customer satisfaction.
+      </p>
+      <br>
+      <br>
+       <p>
+        Built with modern web technologies, ElectricFix empowers users with real-time updates, secure login systems, and personalized complaint management features.
+      </p>
+  </section>
+
+  <script>
+    const menuIcon = document.getElementById("menu-icon");
+    const navLinks = document.getElementById("nav-links");
+
+    menuIcon.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+  </script>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+    <br>
+  <br>  <br>
+  <br>
+  <br>
+
+  <br>
+
+
+  <!-- Footer Section -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-logo">⚡ ElectricFix</div>
+    <p>Smart Electrical Complaint Management System for modern cities.</p>
+    <ul class="footer-links">
+      <li><a href="/home/">Home</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+      <li><a href="/complain/">Complaint</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2025 ElectricFix. All rights reserved.</p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - ElectricFix</title>
+  <link rel="stylesheet" href="{% static 'about.css' %}" />
+</head>
+<body style="background-image:url({% static 'back.jpg' %}); background-repeat: no-repeat; background-size: cover; background-position: center; height: 100vh;">
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">⚡ElectricFix</div>
+    <div class="menu-icon" id="menu-icon">&#9776;</div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/home/">Home</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+      <li><a href="/complain/">Complaint</a></li>
+      <li><a href="/mycomplain/">My Complaints</a></li>
+      {% if user.is_authenticated %}
+        <li><a href="/logout/" class="btn">Logout</a></li>
+      {% else %}
+        <li><a href="/" class="btn">Login</a></li>
+        <li><a href="/register/" class="btn">Register</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+
+  <!-- About Section -->
+  <section class="about-section fade-in" style="color:white">
+    <div class="about-container">
+      <h1>About ElectricFix</h1>
+      <br>
+      <p>
+        ElectricFix is a smart complaint management system for resolving electrical problems efficiently. We’re on a mission to modernize how residents connect with support teams for repairs and safety.
+      </p>
+      <br>
+      <p>
+        Our system offers real-time updates, a personalized dashboard, and fast complaint resolutions, ensuring transparency and reliability.
+      </p>
+    </div>
+  </section>
+  <br>
+  <br>
+
+  <!-- Team Section -->
+  <section class="team-section fade-in" style="color:white">
+    <h2>Meet the Team</h2>
+    <div class="team-container">
+      <div class="team-member">
+        <img src="{% static 'boy1.png' %}" alt="Team Member 1">
+        <h3>Faiz Shaikh</h3>
+        <p>Full-Stack Developer</p>
+      </div>
+      <div class="team-member">
+        <img src="{% static 'girl.png' %}" alt="Team Member 2">
+        <h3>Sana Patel</h3>
+        <p>UI/UX Designer</p>
+      </div>
+      <div class="team-member">
+        <img src="{% static 'boy2.png' %}" alt="Team Member 3">
+        <h3>Rahul Verma</h3>
+        <p>Backend Engineer</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const menuIcon = document.getElementById("menu-icon");
+    const navLinks = document.getElementById("nav-links");
+    menuIcon.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+  </script>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <!-- Footer Section -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-logo">⚡ ElectricFix</div>
+    <p>Smart Electrical Complaint Management System for modern cities.</p>
+    <ul class="footer-links">
+      <li><a href="/home/">Home</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+      <li><a href="/complain/">Complaint</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2025 ElectricFix. All rights reserved.</p>
+  </div>
+</footer>
+
+
+</body>
+</html>

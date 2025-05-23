@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - MyWebsite</title>
+  <link rel="stylesheet" href="{% static 'register.css' %}" />
+
+</head>
+<body style="background-image:url({% static "back.jpg" %}); background-repeat: no-repeat; background-size: cover;  background-position: center;   height: 100vh; ">
+  <nav class="navbar">
+    <div class="logo">⚡ElectricFix</div>
+    <div class="menu-icon" id="menu-icon">&#9776;</div>
+    
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/home/">Home</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/contact/">Contact</a></li>
+  <li><a href="/complain/">Complaint</a></li>
+
+
+  {% if user.is_authenticated %}
+    <!-- Logged-in user -->
+    <li><a href="/logout/" class="btn">Logout</a></li>
+  {% else %}
+    <!-- Guest (not logged in) -->
+    <li><a href="/" class="btn">Login</a></li>
+    <li><a href="/register/" class="btn">Register</a></li>
+  {% endif %}
+
+    </ul>
+  </nav>
+  {% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li class="alert {{ message.tags }}">
+        {{ message }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+
+
+  <section class="content">
+    <h1>Register</h1>
+<form method="POST">
+  {% csrf_token %}
+  <label>Username:</label>
+  <input type="text" name="username" required><br>
+
+  <label>Email:</label>
+  <input type="email" name="email" required><br>
+
+  <label>Password:</label>
+  <input type="password" name="password" required><br>
+
+  <label>Confirm Password:</label>
+  <input type="password" name="confirm_password" required><br>
+
+  <button type="submit">Register</button>
+
+</form>
+
+  </section>
+
+  <script>
+    const menuIcon = document.getElementById("menu-icon");
+    const navLinks = document.getElementById("nav-links");
+    menuIcon.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+  </script>
+</body>
+</html>

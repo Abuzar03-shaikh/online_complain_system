@@ -1,0 +1,193 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+ 
+}
+
+.navbar {
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  position: relative;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #f0c040;
+}
+
+.menu-icon {
+  font-size: 26px;
+  display: none;
+  cursor: pointer;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #333;
+    width: 100%;
+    flex-direction: column;
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 15px 0;
+    text-align: center;
+  }
+}
+
+
+
+.nav-links .btn {
+  background-color: #f0c040;
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.nav-links .btn:hover {
+  background-color: #fff;
+  color: #333;
+}
+/* === Complaint Table Section for my_complain.html === */
+
+.complaint-history {
+  padding: 40px;
+  
+  min-height: 70vh;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.complaint-history h2 {
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+.complaint-table {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 1000px;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+}
+
+.complaint-table th,
+.complaint-table td {
+  border: 1px solid #444;
+  padding: 12px 15px;
+  text-align: center;
+}
+
+.complaint-table th {
+  color: #f0f0f0;
+}
+
+
+
+.complaint-table tr:hover {
+  background-color: #555;
+}
+
+.no-complaints {
+  color: #ccc;
+  font-size: 18px;
+}
+
+.footer {
+  background-color: #111;
+  color: #eee;
+  text-align: center;
+  padding: 40px 20px;
+  margin-top: 50px;
+  border-top: 2px solid #0ff;
+}
+
+.footer-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #0ff;
+  margin-bottom: 10px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footer-links li {
+  margin: 5px 15px;
+}
+
+.footer-links a {
+  color: #0ff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-copy {
+  font-size: 0.9rem;
+  margin-top: 20px;
+  color: #aaa;
+}
+
+
+
+
+

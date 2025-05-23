@@ -1,0 +1,93 @@
+{% load static %}<!-- templates/complain.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Submit Complaint</title>
+  <link rel="stylesheet" href="{% static 'complain.css' %}" />
+
+</head>
+<body style="background-image:url({% static "back.jpg" %}); background-repeat: no-repeat; background-size: cover;  background-position: center;   height: 100vh; ">
+ 
+  <nav class="navbar">
+    <div class="logo">⚡ElectricFix</div>
+    <div class="menu-icon" id="menu-icon">&#9776;</div>
+    
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/home/">Home</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+      <li><a href="/complain/">Complaint</a></li>
+      <li><a href="/mycomplain/">my_complain</a></li>
+
+
+      {% if user.is_authenticated %}
+        <li><a href="/logout/" class="btn">Logout</a></li>
+      {% else %}
+        <li><a href="/" class="btn">Login</a></li>
+        <li><a href="/register/" class="btn">Register</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+
+  <section class="content">
+    <h1>Submit Electric Complaint</h1>
+    <form method="POST">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select name="category" id="category" required>
+          <option value="Power Cut">Power Cut</option>
+          <option value="Wiring Issue">Wiring Issue</option>
+          <option value="Meter Issue">Meter Issue</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" rows="5" required></textarea>
+      </div>
+
+
+      <button type="submit" class="btn">Submit Complaint</button>
+ {% if messages %}
+   <div class="messages">
+    {% for message in messages %}
+      <div class="alert">{{ message }}</div>
+    {% endfor %}
+   </div>
+{% endif %}
+    </form>
+  </section>
+
+  <script>
+    const menuIcon = document.getElementById("menu-icon");
+    const navLinks = document.getElementById("nav-links");
+    menuIcon.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+  </script>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <!-- Footer Section -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-logo">⚡ ElectricFix</div>
+    <p>Smart Electrical Complaint Management System for modern cities.</p>
+    <ul class="footer-links">
+      <li><a href="/home/">Home</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+      <li><a href="/complain/">Complaint</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2025 ElectricFix. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

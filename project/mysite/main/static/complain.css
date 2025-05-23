@@ -1,0 +1,224 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  position: relative;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #f0c040;
+}
+
+.menu-icon {
+  font-size: 26px;
+  display: none;
+  cursor: pointer;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #333;
+    width: 100%;
+    flex-direction: column;
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 15px 0;
+    text-align: center;
+  }
+}
+
+.content {
+  padding: 40px;
+  text-align: center;
+}
+
+.nav-links .btn {
+  background-color: #f0c040;
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.nav-links .btn:hover {
+  background-color: #fff;
+  color: #333;
+}
+/* Complaint Form Section */
+.content {
+  max-width: 600px;
+  margin: 60px auto;
+  background-color: #f9f9f9;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.content h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #444;
+}
+
+input[type="text"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.btn {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.messages {
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.alert {
+  background-color: #4BB543;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  animation: fadein 0.5s ease-in-out;
+}
+
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.footer {
+  background-color: #111;
+  color: #eee;
+  text-align: center;
+  padding: 40px 20px;
+  margin-top: 50px;
+  border-top: 2px solid #0ff;
+}
+
+.footer-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #0ff;
+  margin-bottom: 10px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footer-links li {
+  margin: 5px 15px;
+}
+
+.footer-links a {
+  color: #0ff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-copy {
+  font-size: 0.9rem;
+  margin-top: 20px;
+  color: #aaa;
+}
